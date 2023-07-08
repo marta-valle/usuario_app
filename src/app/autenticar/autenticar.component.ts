@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { enviroment } from 'src/environments/environment';
+import { NgxSpinnerService } from 'ngx-spinner';
+
 
 @Component({
   selector: 'app-autenticar',
@@ -16,7 +18,9 @@ export class AutenticarComponent {
 
   //construtor
   constructor(
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private spinner: NgxSpinnerService
+
   ) { }
 
   //criando o objeto para capturar o formulário
@@ -34,6 +38,10 @@ export class AutenticarComponent {
 
   //função para capturar o SUBMIT do formulário
   onSubmit(): void {
+
+    this.spinner.show();
+    //CODIGO SÓ PRA GERAR UM DELAY QUE DEVE SER APAGADO
+    
 
     //limpar o valor das variáveis
     this.mensagem_sucesso = '';
@@ -53,6 +61,9 @@ export class AutenticarComponent {
         error: (e) => { //resposta de erro!
           this.mensagem_erro = e.error.mensagem;
         }
-      })
+      }).add(
+        ()=>{
+            this.spinner.hide();
+        })
   }
 }

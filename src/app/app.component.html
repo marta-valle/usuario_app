@@ -27,3 +27,15 @@
     <router-outlet></router-outlet>
     <!-- precisa definir a tela "inicial", qnd nenhuma tiver sido selecionada-->
 </div>
+<!-- DATA: 08/07/2023: exibição do spinner Interatividade -->
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  color="#fff"
+  type="timer"
+  [fullScreen]="true"
+  ><p style="color: white">
+    Processando requisição, por favor aguarde...
+  </p></ngx-spinner
+>
+

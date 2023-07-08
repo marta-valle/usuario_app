@@ -9,6 +9,8 @@ import { RecuperarsenhaComponent } from './recuperarsenha/recuperarsenha.compone
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 //dia:01/07 roteando rotas do projeto
 const routes:Routes =[
@@ -29,7 +31,9 @@ const routes:Routes =[
     FormsModule, //formulários reativos - usamos no criação de cadastro
     ReactiveFormsModule, //formulários reativos - usamos no criação de cadastro
     HttpClientModule,//biblioteca para requisições HTTP
-    RouterModule.forRoot(routes)//registrando as rotas no projeto(dia:01/07)
+    RouterModule.forRoot(routes),//registrando as rotas no projeto(dia:01/07)
+    NgxSpinnerModule, //Registrando a biblioteca do spinner (que deixa interativo para o usuario, a espera a comunicação entre o front e o back)
+    BrowserAnimationsModule //Premite a animação do spinner
   ],
   providers: [],
   bootstrap: [AppComponent]
